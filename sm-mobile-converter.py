@@ -1,4 +1,4 @@
-#coding=utf-8
+# -* - coding: UTF-8 -* -
 #on python 2.7.1
 #on windows
 #by laoyang945 inspired by tikiet
@@ -23,7 +23,7 @@ def generate_phonetic_symbol(phoneticText):
 	newstring=['&#716;','&#716;','&#712;','&#230;', '&#593;','&#596;','&#601;','&#643;', '&#618;','&#650;','&#331;','&#652;','&#596;','&#240;','u','&#658;','&#952;','&#604;','&#609;']
 	for k in range(0,len(oldstring)-1):
 		phoneticText=phoneticText.replace(oldstring[k],newstring[k])
-	return '<font face="'+PHONETIC_SYMBOL_FONT+'" size="' + PHONETIC_SYMBOL_SIZE+ '" color="'+PHONETIC_SYMBOL_COLOR + '">' +phoneticText+'</font>'+'\r\n'
+	return '<font face="'+PHONETIC_SYMBOL_FONT+'" size="' + PHONETIC_SYMBOL_SIZE+ '" color="'+PHONETIC_SYMBOL_COLOR + '">' +phoneticText+'</font>'+'\n'
 
 def generate_answer(answerText):
 	oldstring=['7','9','5','A','B','C','E','F','I','J','N','Q','R','T','U','V','W','\\\\','^']
@@ -48,7 +48,7 @@ def main():
 		answerText=line.split('\t')[string.atoi(answerIndex)-1]
 		out_text=generate_question(questionText.encode('utf-8'))+generate_phonetic_symbol(phoneticText.encode('utf-8'))+generate_answer(answerText.encode('utf-8'))
 		output_file.write(out_text.decode('utf-8'))
-	print 'Done'
+	raw_input('Done')
 	word_file.close()
 	output_file.close()
 
